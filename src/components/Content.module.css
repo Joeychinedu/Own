@@ -1,0 +1,12 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 68rem 40rem;
+  padding: 6rem 10rem;
+}
+
+.contentWriteUp {
+  font-size: 1.65rem;
+  line-height: 1.77777777778;
+  font-weight: 400;
+  color: rgba(34, 34, 34, 0.8);
+}

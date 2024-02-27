@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003dff;
+  margin-top: 15rem;
+  padding: 3rem;
+}
+
+.firstFlex {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  gap: 4rem;
+}
+
+.secondFlex {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}

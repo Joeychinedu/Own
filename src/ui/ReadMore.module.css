@@ -1,0 +1,11 @@
+.readMore {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.arrow {
+  font-size: 4rem;
+  margin-top: 1rem;
+  color: #fff;
+}

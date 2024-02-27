@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  transition: color 0.3s, background-color 0.3s;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+a:-webkit-any-link {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+.headroom--scrolled {
+  transition: transform 200ms ease-in-out;
+}
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+}
+.owl-item:not(.center) {
+  filter: blur(5px);
+}

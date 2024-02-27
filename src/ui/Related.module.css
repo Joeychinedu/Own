@@ -1,0 +1,58 @@
+.related {
+  margin-left: 5rem;
+  margin-top: 8rem;
+}
+.relatedP {
+  font-size: 2rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #333;
+  margin-left: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.relatedContentBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.relatedContent {
+  margin: 1.5rem;
+  max-width: 27rem;
+  max-height: 27rem;
+  border-radius: 2px;
+
+  position: relative;
+}
+
+.relatedContent img {
+  max-width: 27rem;
+  max-height: 27rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.relatedContent div {
+  position: absolute;
+  top: 63%;
+  left: 10%;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.relatedContent h3 {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 20rem;
+
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,11 @@
+.p {
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.homeAuthor {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

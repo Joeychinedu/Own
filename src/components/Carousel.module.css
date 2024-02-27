@@ -1,0 +1,38 @@
+.carousel {
+  background: linear-gradient(90deg, #222 13px, transparent 1%) center,
+    linear-gradient(#222 13px, transparent 1%) center, #333;
+  background-size: 15px 15px;
+  color: #fffc;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  z-index: -1;
+}
+
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  color: #fff;
+}
+
+.carouselItem p {
+  font-size: 4.31rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.carouselItem img {
+  border-radius: 3px;
+  height: 54rem;
+}
+
+.lastItem {
+  width: 81rem;
+}
+
+.lastItem img {
+  max-width: 91rem;
+  height: 48rem;
+  border-radius: 3px;
+}
