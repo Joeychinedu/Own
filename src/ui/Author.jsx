@@ -4,7 +4,7 @@ import styles from "./Author.module.css";
 function Author({ name }) {
   return (
     <div className={styles.author}>
-      <img src="../../public/images/LOGO-TOP.png" alt="author" />
+      <img src="../../images/LOGO-TOP.png" alt="author" />
       <span>By - {name}</span>
       <ul className={styles.authorInner}>
         {/* <li>

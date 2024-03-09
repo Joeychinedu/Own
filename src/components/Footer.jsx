@@ -4,7 +4,6 @@ import styles from "./Footer.module.css";
 
 import { FaPinterest, FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
-import { FaFacebookF } from "react-icons/fa";
 
 function Footer() {
   return (
