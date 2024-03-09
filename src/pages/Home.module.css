@@ -789,6 +789,12 @@
     max-width: 30rem;
     font-size: 3rem;
   }
+
+  .homeMainGrid2FirstFlex2 p {
+    font-size: 2rem;
+    max-width: 20rem;
+  }
+
   .homeMainGrid2Second p {
     max-width: 50rem;
   }

@@ -54,3 +54,17 @@ img {
 .owl-item:not(.center) {
   filter: blur(5px);
 }
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background: #2f184b;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .owl-nav {
+    display: none;
+  }
+
+  .owl-dots {
+    margin-top: 3rem;
+  }
+}

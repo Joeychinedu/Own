@@ -26,19 +26,19 @@ function Carousel() {
         responsive={responsive}
       >
         <div className={styles.carouselItem}>
-          <SmallTitle title="Music" bgColor="#003dff" to="music" />
-          <Link to="music/tiktok">
-            <p>What TikTok did to Nigerian Music</p>
-          </Link>
-          <img src="../../images/tiktok.webp" alt="music" />
-        </div>
-
-        <div className={styles.carouselItem}>
           <SmallTitle title="music" to="music" bgColor="#003dff" />
           <Link to="music/stanculture">
             <p>Stan Culture In Nigeria</p>
           </Link>
           <img src="../../images/rema-performing.jpg" alt="music" />
+        </div>
+
+        <div className={styles.carouselItem}>
+          <SmallTitle title="Music" bgColor="#003dff" to="music" />
+          <Link to="music/tiktok">
+            <p>What TikTok did to Nigerian Music</p>
+          </Link>
+          <img src="../../images/tiktok.webp" alt="music" />
         </div>
 
         <div className={`${styles.carouselItem} ${styles.lastItem} `}>
