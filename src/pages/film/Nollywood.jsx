@@ -46,7 +46,7 @@ function Gk() {
       <div>
         <Content
           related={relatedCategoryItems}
-          category="Lifestyle"
+          category={matchCategory?.at(0).name}
           image={DisplayCategoryItem?.at(0).CoverImage}
           to={`/${DisplayCategory?.at(0).link}`}
           authorName={DisplayCategoryItem?.at(0).author}

@@ -7,13 +7,18 @@ function Preview({ content, category }) {
   return (
     <div className={styles.preview}>
       {content.map((item) => (
-        <PreviewItem item={item} category={category} key={item.id} />
+        <PreviewItem
+          item={item}
+          category={category}
+          key={item.id}
+          authorName={item.author}
+        />
       ))}
     </div>
   );
 }
 
-function PreviewItem({ item, category }) {
+function PreviewItem({ item, category, authorName }) {
   return (
     <div className={styles.previewItem}>
       <SmallTitle title={category} bgColor="#003dff" pad={".3rem .7rem"} />
@@ -22,7 +27,7 @@ function PreviewItem({ item, category }) {
         <h4>
           <Link to={item.link}>{item.title}</Link>
         </h4>
-        <ByOwn />
+        <ByOwn name={authorName} />
       </div>
     </div>
   );
