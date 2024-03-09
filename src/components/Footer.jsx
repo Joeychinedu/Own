@@ -13,7 +13,7 @@ function Footer() {
       <div className={styles.firstFlex}>
         <SmallTitle title="ABOUT" to="about" />
         <SmallTitle title="CONTACT" to="contact" />
-        <SmallTitle title="Author" to="author" />
+        {/* <SmallTitle title="Author" to="author" /> */}
         <SmallTitle title="HELP" to="support" />
       </div>
       <div className={styles.secondFlex}>
