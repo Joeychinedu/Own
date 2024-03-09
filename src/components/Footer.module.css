@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #003dff;
+  background-color: #2f184b;
   margin-top: 15rem;
   padding: 3rem;
 }
@@ -20,4 +20,19 @@
   gap: 1rem;
   font-size: 1.5rem;
   color: #fff;
+}
+
+@media only screen and (max-width: 70em) {
+  .footer {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .firstFlex {
+    gap: 2rem;
+  }
+
+  .secondFlex {
+    gap: 2rem;
+  }
 }

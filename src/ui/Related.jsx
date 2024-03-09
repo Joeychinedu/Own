@@ -1,39 +1,38 @@
 import { useState } from "react";
 import styles from "./Related.module.css";
 import SmallTitle from "./SmallTitle";
+import { Link } from "react-router-dom";
 
-const music = [
-  { id: 0, title: "dfnk3rjf3rm fj3kf", image: "2" },
-  { id: 1, title: "dfnk3rjf3rm fj3kf", image: "2" },
-  { id: 2, title: "dfnk3rjf3rm fj3kf", image: "2" },
-  { id: 3, title: "dfnk3rjf3rm fj3kf", image: "2" },
-];
-
-function Related() {
+function Related({ related, category, to }) {
   const [previous, setPrevious] = useState();
 
-  return (
-    <div className={styles.related}>
-      <p className={styles.relatedP}>Related</p>
-      <div className={styles.relatedContentBox}>
-        {music.map((el) => (
-          <RelatedMini
-            category={el.category}
-            title={el.title}
-            image={el.image}
-          />
-        ))}
+  if (related.length !== 0)
+    return (
+      <div className={styles.related}>
+        <p className={styles.relatedP}>Related</p>
+        <div className={styles.relatedContentBox}>
+          {related?.map((el) => (
+            <RelatedMini
+              title={el.title}
+              image={el.CoverImage}
+              category={category}
+              key={el.title}
+              to={`${to}/${el.link}`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
-function RelatedMini({ category, title, image }) {
+function RelatedMini({ category, title, image, to }) {
   return (
     <div className={styles.relatedContent}>
-      <img src={`../../images/${image}.jpg`} alt="" />
-      <SmallTitle title="Music" bgColor="#003dff" />
-      <h3>{title}</h3>
+      <img src={image} alt="" />
+      <SmallTitle title={category} bgColor="#003dff" to={to} />
+      <Link to={to}>
+        <h3>{title}</h3>
+      </Link>
     </div>
   );
 }

@@ -36,3 +36,23 @@
   height: 48rem;
   border-radius: 3px;
 }
+
+@media only screen and (max-width: 53.125em) {
+  .carouselItem p {
+    font-size: 2.4rem;
+  }
+  .carouselItem img {
+    max-width: 51rem;
+    height: 40rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .carouselItem p {
+    font-size: 1.8rem;
+  }
+  .carouselItem img {
+    max-width: 40rem;
+    height: 25rem;
+  }
+}

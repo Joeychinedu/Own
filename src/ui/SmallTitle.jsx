@@ -8,10 +8,10 @@ function SmallTitle({ title, bgColor, styled, to, color, pad }) {
       letterSpacing: "0.06em",
       lineHeight: 1,
       padding: pad || "0.3rem 1.3rem",
-      backgroundColor: bgColor,
+      backgroundColor: "#2f184b",
       borderRadius: "3px",
       textTransform: "uppercase",
-      color: color || "#fff",
+      color: "#fff",
       marginLeft: styled,
     },
   };

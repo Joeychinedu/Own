@@ -1,14 +1,11 @@
+import styles from "./Logo.module.css";
 import { Link } from "react-router-dom";
 
-function Logo() {
+function Logo({ type }) {
   return (
     <div>
       <Link to="/">
-        <img
-          style={{ maxHeight: "5.5rem" }}
-          src="../../images/logo.png"
-          alt="logo"
-        />
+        <img className={styles.logo} src={`../../images/${type}`} alt="logo" />
       </Link>
     </div>
   );

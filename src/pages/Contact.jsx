@@ -1,5 +1,11 @@
+import ComingSoon from "../ui/ComingSoon";
+
 function Contact() {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <ComingSoon />
+    </div>
+  );
 }
 
 export default Contact;

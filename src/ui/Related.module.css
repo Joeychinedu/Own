@@ -5,19 +5,20 @@
 .relatedP {
   font-size: 2rem;
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
   margin-left: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .relatedContentBox {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .relatedContent {
-  margin: 1.5rem;
+  /* margin: 1.5rem; */
   max-width: 27rem;
   max-height: 27rem;
   border-radius: 2px;
@@ -26,28 +27,26 @@
 }
 
 .relatedContent img {
-  max-width: 27rem;
-  max-height: 27rem;
+  width: 27rem;
+  height: 27rem;
   object-fit: cover;
   object-position: center;
+  border-radius: 5px;
 }
 
 .relatedContent div {
   position: absolute;
-  top: 63%;
+  top: 50%;
   left: 10%;
   color: #fff;
-
-  display: flex;
-  flex-direction: column;
 }
 
 .relatedContent h3 {
   position: absolute;
-  top: 80%;
+  top: 65%;
   left: 10%;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   font-weight: 600;
   text-transform: capitalize;
@@ -55,4 +54,80 @@
 
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 75em) {
+  .related {
+    margin-left: 0;
+  }
+
+  .relatedContentBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .relatedContent {
+    min-width: 45rem;
+    min-height: 45rem;
+  }
+
+  .relatedContent img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.75);
+  }
+
+  .relatedP {
+    font-size: 4rem;
+    margin-left: 0;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+
+  .relatedContent h3 {
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 68.75em) {
+  .relatedContentBox {
+    grid-template-columns: 40vw 40vw;
+  }
+
+  .relatedContent {
+    min-width: 40vw;
+    min-height: 40vw;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  .relatedContentBox {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedContent {
+    min-width: 80vw;
+    min-height: 60vw;
+  }
+
+  .relatedContent h3 {
+    font-size: 3.2rem;
+    width: 40rem;
+  }
+
+  .relatedContent div {
+    top: 55%;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .relatedContent h3 {
+    font-size: 2.2rem;
+    width: 30rem;
+    top: 60%;
+  }
+
+  .relatedContent div {
+    top: 50%;
+  }
 }

@@ -1,0 +1,43 @@
+.puc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 90vw;
+  height: 50rem;
+  color: #1c1c1c;
+  text-align: center;
+  margin: 4rem auto;
+
+  box-shadow: 2px 2px 23px rgba(0, 0, 0, 0.1);
+  border-radius: 11px;
+}
+
+.puc h2 {
+  font-size: 4rem;
+  text-transform: capitalize;
+}
+
+.puc h4 {
+  font-size: 3rem;
+  color: #d4d4d4;
+}
+
+.puc p {
+  font-family: ff-meta-serif-web-pro, serif;
+  font-size: 2rem;
+  line-height: 1.333333;
+  color: #1c1c1c;
+  max-width: 70rem;
+}
+
+.puc span {
+  text-decoration: underline !important;
+  color: #003dff;
+  cursor: pointer;
+}
+
+.puc span:hover {
+  color: #042aa7;
+}

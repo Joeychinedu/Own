@@ -10,31 +10,51 @@ import { BsArrowUpRight } from "react-icons/bs";
 import Advert from "../ui/Advert";
 import Carousel from "../components/Carousel";
 import CoverHeader from "../components/CoverHeader";
+import { useCategories } from "../features/tools/useCategories";
+import { useLifestyles } from "../features/tools/useLifestyle";
+import Spinner from "../ui/Spinner";
 
 function Home() {
-  return (
-    <>
-      {/* <div className={styles.homeCover}>
-        <img src="../../images/hero.jpg" alt="hero" />
-      </div>
+  const { isLoading: isLoadingCategories, category } = useCategories();
+  const { isLoading: isLoadingStyles, posts } = useLifestyles();
 
-      <div className={styles.homeHeader}>
-        <SmallTitle title="music" bgColor="#003dff" />
-        <h1 className={styles.homeSubTitle}>Rap Isn't Dead</h1>
-        <ByOwn />
-      </div> */}
+  const matchCategory = category?.filter((el) => el.id === 2);
+
+  const matchCategoryItems = posts?.filter((el) => el.CategoryId === 2);
+
+  const relatedCategoryItems = posts?.filter(
+    (el) =>
+      el.CategoryId === 2 &&
+      el.title !== "Misogyny in the Nigerian Creative Scene"
+  );
+
+  const DisplayCategory = matchCategory?.filter((el) => el.name === "Music");
+  const DisplayCategoryItem = matchCategoryItems?.filter(
+    (el) => el.title === "Misogyny in the Nigerian Creative Scene"
+  );
+
+  return !matchCategoryItems ? (
+    <Spinner />
+  ) : (
+    <>
       <CoverHeader
-        image="hero.jpg"
-        title="Music"
-        alt="music"
-        content="Rap Isn't Dead"
+        image={DisplayCategoryItem?.at(0).CoverImage}
+        title={DisplayCategory?.at(0).name}
+        alt={DisplayCategory?.at(0).name}
+        content={DisplayCategoryItem?.at(0).title}
+        to={`/music/${DisplayCategoryItem?.at(0).link}`}
       />
       <div className={styles.homeGrid}>
         <div>
-          <SmallTitle title="lifestyle" bgColor="none" styled="-1rem" />
+          <SmallTitle
+            title="lifestyle"
+            bgColor="none"
+            styled="-1rem"
+            to="lifestyle"
+          />
           <div>
             <h3 className={styles.homeSubHead1}>
-              <Link to="">Gifted kid burnout</Link>
+              <Link to="lifestyle/gk">Gifted kid burnout</Link>
             </h3>
             <p className={styles.headPost}>
               “You used to be so smart”, “Why are you unenthusiastic about
@@ -45,16 +65,16 @@ function Home() {
           </div>
           <img
             className={styles.homeGridImg1}
-            src="../../images/45.jpg"
+            src="../../images/gifted-kid.webp"
             alt="Gifted kid"
           />
-          <ReadMore to="lifestyle" />
+          <ReadMore to="lifestyle/gk" />
         </div>
         <div>
-          <SmallTitle title="Film" bgColor="none" styled="-1rem" />
+          <SmallTitle title="Film" bgColor="none" styled="-1rem" to="film" />
           <div>
             <h3 className={styles.homeSubHead1}>
-              <Link to="film">
+              <Link to="film/cinematic2">
                 Cinematic Misfits : The Rise Of Nigerian Animation
               </Link>
             </h3>
@@ -64,16 +84,16 @@ function Home() {
           </div>
           <img
             className={styles.homeGridImg1}
-            src="../../images/12.jpg"
-            alt="Gifted kid"
+            src="../../images/animation.webp"
+            alt="Cinematic"
           />
-          <ReadMore to="film" />
+          <ReadMore to="film/cinematic2" />
         </div>
         <div>
-          <SmallTitle title="Art" bgColor="none" styled="-1rem" />
+          <SmallTitle title="Music" bgColor="none" styled="-1rem" to="music" />
           <div>
             <h3 className={styles.homeSubHead1}>
-              <Link to="art">Alte 101</Link>
+              <Link to="music/alte101">Alte 101</Link>
             </h3>
             <p className={styles.headPost}>
               Coined from the word alternative, the term alté has come to mean a
@@ -84,36 +104,40 @@ function Home() {
           </div>
           <img
             className={styles.homeGridImg1}
-            src="../../images/x18.jpg"
-            alt="Gifted kid"
+            src="../../images/Alte-101.webp"
+            alt="Alte 101"
           />
-          <ReadMore to="art" />
+          <ReadMore to="music/alte101" />
         </div>
       </div>
 
       <Editor />
       <div className={styles.homeMainGrid}>
         <div className={styles.homeMainGrid1}>
-          <SmallTitle title="Lifestyle" bgColor="#003dff" />
-          <p>Myth Or Facts The Influence Of Drugs In Creativity.</p>
+          <SmallTitle title="lifestyle" bgColor="#003dff" />
+          <Link to="lifestyle/mythorfacts">
+            <p>Myth Or Facts The Influence Of Drugs In Creativity.</p>
+          </Link>
         </div>
         <div className={styles.homeMainGrid2}>
           <div className={styles.homeMainGrid2First}>
             <div className={styles.homeMainGrid2FirstFlex}>
               <div>
                 <img
-                  src="../../images/cover-art.jpg"
+                  src="../../images/cover-art.webp"
                   alt=""
                   className={styles.homeMainGrid2FirstFlexImg}
                 />
               </div>
               <div className={styles.homeMainGrid2FirstFlex2}>
-                <SmallTitle title="Art" styled="-1.2rem" />
-                <p>THE POWER OF COVER ARTS</p>
+                <SmallTitle title="Art" styled="-1.2rem" to="art" />
+                <Link to="art/coverarts">
+                  <p>THE POWER OF COVER ARTS</p>
+                </Link>
                 <ByOwn />
               </div>
               <div className={styles.righticon}>
-                <Link to="art">
+                <Link to="art/coverarts">
                   <FaArrowRightLong size={"3rem"} />
                 </Link>
               </div>
@@ -121,29 +145,33 @@ function Home() {
             <div className={styles.homeMainGrid2FirstFlex}>
               <div>
                 <img
-                  src="../../images/x41.jpg"
+                  src="../../images/Alte-101-2.jpg"
                   alt=""
                   className={styles.homeMainGrid2FirstFlexImg}
                 />
               </div>
               <div className={styles.homeMainGrid2FirstFlex2}>
-                <SmallTitle title="Music" styled="-1.2rem" />
-                <p>ALTE'S FUNERAL</p>
+                <SmallTitle title="Music" styled="-1.2rem" to="music" />
+                <Link to="music/alte101">
+                  <p>ALTE'S FUNERAL</p>
+                </Link>
                 <ByOwn />
               </div>
               <div className={styles.righticon}>
-                <Link to="music">
+                <Link to="music/alte101">
                   <FaArrowRightLong size={"3rem"} />
                 </Link>
               </div>
             </div>{" "}
           </div>
           <div className={styles.homeMainGrid2Second}>
-            <SmallTitle title="Film" bgColor="#003dff" />
-            <p>
-              CINEMATIC MISFITS: DUMB DADS AND THEIR LINGERING EFFECTS ON REAL
-              LIFE FAMILIES
-            </p>
+            <SmallTitle title="Film" bgColor="#003dff" to="film" />
+            <Link to="film/cinematic1">
+              <p>
+                CINEMATIC MISFITS: DUMB DADS AND THEIR LINGERING EFFECTS ON REAL
+                LIFE FAMILIES
+              </p>
+            </Link>
             <ByOwn />
           </div>
         </div>
@@ -158,83 +186,78 @@ function Home() {
       <div className={styles.homeAsideGrid}>
         <div className={`${styles.homeAsideGrid1} ${styles.asideGridBorder1}`}>
           <div className={styles.homeAsideGridFlex}>
+            <SmallTitle title="Art" to="art" color="#000" styled="-3rem" />
+            <Link to="art/convowithadeart">
+              <span className={styles.homeAsideGridFlexSpan}>
+                TheOWNMag in Conversation with ADEARTS
+              </span>
+            </Link>
+            <ByOwn styled="-1.8rem" />
+          </div>
+          <div className={styles.homeAsideGridFlex1}>
+            <div className={styles.rightArrowUp}>
+              <Link to="art/convowithadeart">
+                <BsArrowUpRight size={"4.5rem"} color="currentColor" />
+              </Link>
+            </div>
+            <img src="../../images/meetOwn.jpg" alt="" />
+          </div>
+        </div>
+        <div className={styles.homeAsideGrid1}>
+          <div className={styles.homeAsideGridFlex}>
+            <SmallTitle title="music" to="music" color="#000" styled="-3rem" />
+            <Link to="music/streetmij">
+              <span className={styles.homeAsideGridFlexSpan}>
+                Street music isn't just for the streets
+              </span>
+            </Link>
+            <ByOwn styled="-1.8rem" />
+          </div>
+          <div className={styles.homeAsideGridFlex1}>
+            <div className={styles.rightArrowUp}>
+              <Link to="music/streetmij">
+                <BsArrowUpRight size={"4.5rem"} color="currentColor" />
+              </Link>
+            </div>
+            <img src="../../images/STREET.webp" alt="" />
+          </div>
+        </div>
+        <div className={styles.homeAsideGrid1}>
+          <div className={styles.homeAsideGridFlex}>
             <SmallTitle title="Music" to="music" color="#000" styled="-3rem" />
-            <Link to="music">
+            <Link to="music/rapisntdead">
               <span className={styles.homeAsideGridFlexSpan}>
-                Street Music Isn't Just For The Streets
+                Rap isn't dead
               </span>
             </Link>
             <ByOwn styled="-1.8rem" />
           </div>
           <div className={styles.homeAsideGridFlex1}>
             <div className={styles.rightArrowUp}>
-              <Link to="music">
+              <Link to="music/rapisntdead">
                 <BsArrowUpRight size={"4.5rem"} color="currentColor" />
               </Link>
             </div>
-            <img src="../../images/28.jpg" alt="" />
-          </div>
-        </div>
-        <div className={styles.homeAsideGrid1}>
-          <div className={styles.homeAsideGridFlex}>
-            <SmallTitle title="Film" to="film" color="#000" styled="-3rem" />
-            <Link to="music">
-              <span className={styles.homeAsideGridFlexSpan}>
-                Nigeria's Need For Originality And Audience Gripping Stories
-              </span>
-            </Link>
-            <ByOwn styled="-1.8rem" />
-          </div>
-          <div className={styles.homeAsideGridFlex1}>
-            <div className={styles.rightArrowUp}>
-              <Link to="film">
-                <BsArrowUpRight size={"4.5rem"} color="currentColor" />
-              </Link>
-            </div>
-            <img src="../../images/11.jpg" alt="" />
-          </div>
-        </div>
-        <div className={styles.homeAsideGrid1}>
-          <div className={styles.homeAsideGridFlex}>
-            <SmallTitle
-              title="Lifestyle"
-              to="lifestyle"
-              color="#000"
-              styled="-3rem"
-            />
-            <Link to="lifestyle">
-              <span className={styles.homeAsideGridFlexSpan}>
-                Gifted Kid Burnout
-              </span>
-            </Link>
-            <ByOwn styled="-1.8rem" />
-          </div>
-          <div className={styles.homeAsideGridFlex1}>
-            <div className={styles.rightArrowUp}>
-              <Link to="lifestyle">
-                <BsArrowUpRight size={"4.5rem"} color="currentColor" />
-              </Link>
-            </div>
-            <img src="../../images/2.jpg" alt="" />
+            <img src="../../images/RapIsntDead.webp" alt="" />
           </div>
         </div>
         <div className={`${styles.homeAsideGrid1} ${styles.asideGridBorder2}`}>
           <div className={styles.homeAsideGridFlex}>
-            <SmallTitle title="Art" to="art" color="#000" styled="-3rem" />
-            <Link to="art">
+            <SmallTitle title="Books" to="books" color="#000" styled="-3rem" />
+            <Link to="books/booksyoushouldread">
               <span className={styles.homeAsideGridFlexSpan}>
-                The Power Of Cover Arts.
+                Books You Should Read
               </span>
             </Link>
             <ByOwn styled="-1.8rem" />
           </div>
           <div className={styles.homeAsideGridFlex1}>
             <div className={styles.rightArrowUp}>
-              <Link to="art">
+              <Link to="books/booksyoushouldread">
                 <BsArrowUpRight size={"4.5rem"} color="currentColor" />
               </Link>
             </div>
-            <img src="../../images/33.jpg" alt="" />
+            <img src="../../images/books.webp" alt="" />
           </div>
         </div>
       </div>
@@ -244,17 +267,31 @@ function Home() {
         <div className={styles.homeArticleGrid}>
           <div className={styles.homeArticleFirstGrid}>
             <div>
-              <SmallTitle title="Lifestyle" bgColor="#003dff" />
-              <p>Myth Of Facts The Influence Of Drugs Of Creativity</p>
+              <SmallTitle title="Lifestyle" bgColor="#003dff" to="lifestyle" />
+              <Link to="music/wickedart">
+                <p>Wicked Art - The Devil Plays a Bass</p>
+              </Link>
               <ByOwn />
             </div>
-            <img src="../../images/x41.jpg" alt="lifestyle" />
+            <img src="../../images/Devil-plays-a-bass.jpg" alt="lifestyle" />
           </div>
           <div className={styles.homeArticleSecondGrid}>
-            <SmallTitle title="Music" bgColor="#003dff" pad={".3rem .7rem"} />
-            <img src="../../images/51.jpg" alt="" />
-            <h3>Alte 101</h3>
-            <ByOwn />
+            <SmallTitle
+              title="Music"
+              bgColor="#003dff"
+              pad={".3rem .7rem"}
+              to="music"
+            />
+            <img src="../../images/DumbsDad.webp" alt="" />
+            <div className={styles.homeArticleSecondGridInner}>
+              <Link to="film/cinematic1">
+                <h3>
+                  CINEMATIC MISFITS: DUMB DADS AND THEIR LINGERING EFFECTS ON
+                  REAL LIFE FAMILIES
+                </h3>
+              </Link>
+              <ByOwn />
+            </div>
           </div>
         </div>
       </div>
@@ -266,10 +303,17 @@ function Home() {
           </div>
           <div className={styles.homeFinalGrid1}>
             <div>
-              <SmallTitle title="Music" bgColor="#003dff" pad={".3rem .7rem"} />
-              <img src="../../images/hero.jpg" alt="music" />
+              <SmallTitle
+                title="Music"
+                bgColor="#003dff"
+                pad={".3rem .7rem"}
+                to="music"
+              />
+              <img src="../../images/RapIsntDead.webp" alt="music" />
               <div className={styles.up}>
-                <h4>Rap isn't dead</h4>
+                <Link to="music/rapisntdead">
+                  <h4>Rap isn't dead</h4>
+                </Link>
                 <ByOwn />
               </div>
             </div>
@@ -278,26 +322,45 @@ function Home() {
                 title="Lifestyle"
                 bgColor="#003dff"
                 pad={".3rem .7rem"}
+                to="lifestyle"
               />
-              <img src="../../images/45.jpg" alt="styles" />
+              <img src="../../images/gifted-kid.webp" alt="styles" />
               <div className={styles.up}>
-                <h4>Gifted Kids Burnout</h4>
+                <Link to="lifestyle/gk">
+                  <h4>Gifted Kids Burnout</h4>
+                </Link>
                 <ByOwn />
               </div>
             </div>
             <div>
-              <SmallTitle title="Film" bgColor="#003dff" pad={".3rem .7rem"} />
-              <img src="../../images/12.jpg" alt="film" />
+              <SmallTitle
+                title="Film"
+                bgColor="#003dff"
+                pad={".3rem .7rem"}
+                to="film"
+              />
+              <img src="../../images/animation.webp" alt="film" />
               <div className={styles.up}>
-                <h4>film Cinematic Misfits : The Rise Of Nigerian Animation</h4>
+                <Link to="film/cinematic2">
+                  <h4>
+                    film Cinematic Misfits : The Rise Of Nigerian Animation
+                  </h4>
+                </Link>
                 <ByOwn />
               </div>
             </div>
             <div>
-              <SmallTitle title="Music" bgColor="#003dff" pad={".3rem .7rem"} />
-              <img src="../../images/x18.jpg" alt="music" />
+              <SmallTitle
+                title="Music"
+                bgColor="#003dff"
+                pad={".3rem .7rem"}
+                to="music"
+              />
+              <img src="../../images/Sound-man.webp" alt="music" />
               <div className={styles.up}>
-                <h4>Alte 101</h4>
+                <Link to="music/soundman">
+                  <h4>Sound-Man Sound's Genius</h4>
+                </Link>
                 <ByOwn />
               </div>
             </div>

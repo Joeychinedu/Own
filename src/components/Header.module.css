@@ -3,6 +3,7 @@
   padding-left: 3.5rem;
   align-items: center;
   height: 10rem;
+  width: 100vw;
   background-color: #fff;
 }
 
@@ -21,6 +22,17 @@
   margin-bottom: 0;
   margin-top: 0;
   padding-left: 2rem;
+}
+
+.headerList li {
+  padding: 0.5rem;
+  transition: background-color 0.56s;
+  border-radius: 5px;
+}
+
+.headerList li:hover {
+  background-color: #2f184b;
+  color: #fff;
 }
 
 .headerSub {
@@ -44,4 +56,88 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   display: block;
+}
+
+.btn {
+  display: none;
+}
+
+.headerSmall {
+  width: 70vw;
+  height: 120rem;
+  background-color: #fff;
+  z-index: 1000000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.headerListSmall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.headerListSmall li {
+  padding: 0.5rem;
+  transition: background-color 0.56s;
+  border-radius: 5px;
+}
+
+.headerListSmall li:hover {
+  background-color: #2f184b;
+  color: #fff;
+}
+
+.headerSubSmall {
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+}
+
+.navOpen {
+  left: 0;
+}
+
+.navClose {
+  left: -80vw;
+}
+
+.btnClose {
+  background-color: #fff;
+  border: none;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 70em) {
+  .btn {
+    display: block;
+    margin-right: 2rem;
+    background-color: #fff;
+    border: none;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .headerList {
+    display: none;
+  }
+
+  .headerSub {
+    display: none;
+  }
 }

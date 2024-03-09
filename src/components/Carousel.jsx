@@ -4,6 +4,13 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import styles from "./Carousel.module.css";
 import SmallTitle from "../ui/SmallTitle";
+import { Link } from "react-router-dom";
+
+const responsive = {
+  600: {
+    items: 4,
+  },
+};
 
 function Carousel() {
   return (
@@ -16,21 +23,30 @@ function Carousel() {
         items={2}
         center
         autoWidth
+        responsive={responsive}
       >
         <div className={styles.carouselItem}>
-          <SmallTitle title="Art" bgColor="#003dff" />
-          <p>Stan Culture In Nigeria</p>
-          <img src="../../images/rema-performing.jpg" alt="art" />
+          <SmallTitle title="Music" bgColor="#003dff" to="music" />
+          <Link to="music/tiktok">
+            <p>What TikTok did to Nigerian Music</p>
+          </Link>
+          <img src="../../images/tiktok.webp" alt="music" />
         </div>
+
         <div className={styles.carouselItem}>
-          <SmallTitle title="Art" bgColor="#003dff" />
-          <p>The Power Of Cover Art</p>
-          <img src="../../images/cover-art.jpg" alt="art" />
+          <SmallTitle title="music" to="music" bgColor="#003dff" />
+          <Link to="music/stanculture">
+            <p>Stan Culture In Nigeria</p>
+          </Link>
+          <img src="../../images/rema-performing.jpg" alt="music" />
         </div>
+
         <div className={`${styles.carouselItem} ${styles.lastItem} `}>
-          <SmallTitle title="Art" bgColor="#003dff" />
-          <p>5 fantasy fictions novels that should be in your library</p>
-          <img src="../../images/books.png" alt="art" />
+          <SmallTitle title="Books" bgColor="#003dff" to="books" />
+          <Link to="books/booksyoushouldread">
+            <p>Books You Should Read</p>
+          </Link>
+          <img src="../../images/books.webp" alt="books" />
         </div>
       </OwlCarousel>
     </div>

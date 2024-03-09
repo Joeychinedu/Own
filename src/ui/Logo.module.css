@@ -1,0 +1,11 @@
+.logo {
+  max-width: 10.3rem;
+  max-height: 5.4rem;
+}
+
+@media only screen and (max-width: 70em) {
+  .logo {
+    max-width: 7.5rem;
+    max-height: 6rem;
+  }
+}

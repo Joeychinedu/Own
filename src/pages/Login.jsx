@@ -1,5 +1,11 @@
+import ComingSoon from "../ui/ComingSoon";
+
 function Login() {
-  return <div>Login</div>;
+  return (
+    <div>
+      <ComingSoon />
+    </div>
+  );
 }
 
 export default Login;

@@ -9,6 +9,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  filter: brightness(0.95);
 }
 
 .homeHeader {
@@ -37,8 +39,50 @@
 }
 
 .homeSubTitle {
-  font-size: 6.5rem;
+  max-width: 100rem;
+  font-size: 5.5rem;
   font-weight: 700;
   line-height: 1.18;
   color: #fff;
+  text-align: center;
+}
+
+@media only screen and (max-width: 87.5em) {
+  .homeCover {
+    height: 70rem;
+  }
+}
+
+@media only screen and (max-width: 62.5em) {
+  .homeCover {
+    height: 60rem;
+  }
+  .homeSubTitle {
+    font-size: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  .homeCover {
+    height: 50rem;
+  }
+
+  .homeSubTitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 34.375em) {
+  .homeCover {
+    height: 45rem;
+  }
+  .homeSubTitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .homeCover {
+    height: 35rem;
+  }
 }
