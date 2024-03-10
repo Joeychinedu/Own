@@ -1,10 +1,10 @@
 import { FaInstagram, FaPinterest, FaTwitter } from "react-icons/fa";
 import styles from "./Author.module.css";
 
-function Author({ name }) {
+function Author({ name, authorImage }) {
   return (
     <div className={styles.author}>
-      <img src="../../images/LOGO-TOP.png" alt="author" />
+      <img src={authorImage} alt="author" />
       <span>By - {name}</span>
       <ul className={styles.authorInner}>
         {/* <li>

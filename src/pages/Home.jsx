@@ -13,8 +13,13 @@ import CoverHeader from "../components/CoverHeader";
 import { useCategories } from "../features/tools/useCategories";
 import { useLifestyles } from "../features/tools/useLifestyle";
 import Spinner from "../ui/Spinner";
+import { useEffect } from "react";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { isLoading: isLoadingCategories, category } = useCategories();
   const { isLoading: isLoadingStyles, posts } = useLifestyles();
 
@@ -153,7 +158,7 @@ function Home() {
               <div className={styles.homeMainGrid2FirstFlex2}>
                 <SmallTitle title="Music" styled="-1.2rem" to="music" />
                 <Link to="music/alte101">
-                  <p>ALTE'S FUNERAL</p>
+                  <p>ALTE'S 101</p>
                 </Link>
                 <ByOwn />
               </div>
@@ -277,10 +282,10 @@ function Home() {
           </div>
           <div className={styles.homeArticleSecondGrid}>
             <SmallTitle
-              title="Music"
+              title="Film"
               bgColor="#003dff"
               pad={".3rem .7rem"}
-              to="music"
+              to="film"
             />
             <img src="../../images/DumbsDad.webp" alt="" />
             <div className={styles.homeArticleSecondGridInner}>

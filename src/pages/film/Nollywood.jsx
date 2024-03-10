@@ -50,6 +50,7 @@ function Gk() {
           image={DisplayCategoryItem?.at(0).CoverImage}
           to={`/${DisplayCategory?.at(0).link}`}
           authorName={DisplayCategoryItem?.at(0).author}
+          authorImage={DisplayCategoryItem?.at(0).authorImage}
         >
           {DisplayCategoryItem?.at(0).content}
         </Content>

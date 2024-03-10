@@ -10,12 +10,20 @@ import styles from "./Content.module.css";
 
 // Now you can use `formattedContent` in your React component or wherever you display the blog content
 
-function Content({ children, related, category, image, to, authorName }) {
+function Content({
+  children,
+  related,
+  category,
+  image,
+  to,
+  authorName,
+  authorImage,
+}) {
   const displayContent = insertParagraphs(children);
   return (
     <div className={styles.content}>
       <div className={styles.contentAuthor}>
-        <Author name={authorName} />
+        <Author name={authorName} authorImage={authorImage} />
       </div>
       <div className={styles.contentWriteUp}>
         <img src={image} alt="" />

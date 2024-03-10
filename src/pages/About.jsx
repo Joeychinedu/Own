@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import styles from "./About.module.css";
 
 function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <p className={styles.about}>
       Welcome to TheOWNMag, a captivating wonderland that celebrates and
