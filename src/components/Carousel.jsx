@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const responsive = {
   600: {
-    items: 4,
+    items: 1,
   },
 };
 
@@ -20,6 +20,7 @@ function Carousel() {
         loop
         margin={100}
         nav
+        dots
         items={2}
         center
         autoWidth

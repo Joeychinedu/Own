@@ -56,7 +56,23 @@ img {
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-  background: #2f184b;
+  /* background: #2f184b; */
+  background: rgba(255, 255, 255, 1);
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  background: transparent;
+  border: 1px solid;
+  border-color: #fff;
+  padding: 0.6rem;
+}
+
+.owl-carousel .owl-nav.disabled {
+  display: block !important;
+}
+
+.owl-carousel .owl-dots.disabled {
+  display: block !important;
 }
 
 @media only screen and (max-width: 37.5em) {
