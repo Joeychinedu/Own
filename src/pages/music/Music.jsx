@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Content from "../../components/Content";
 import CoverHeader from "../../components/CoverHeader";
 import Preview from "../../components/Preview";
 import { useCategories } from "../../features/tools/useCategories";
@@ -20,6 +19,46 @@ function Music() {
   // const DisplayCategoryItem = matchCategoryItems?.filter(
   //   (el) => el.title === "Gifted kids burnout"
   // );
+  const metadata = {
+    title: "OWNMag | Music",
+    description: `${DisplayCategory?.at(0).description}`,
+    imageUrl: `${DisplayCategory?.at(0).coverImage}`,
+  };
+
+  useEffect(() => {
+    document.title = metadata.title; // Set document title
+    document
+      .querySelector('link[rel="canonical"]')
+      .setAttribute("href", window.location.href);
+
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute("content", metadata.description); // Update description meta tag
+    document
+      .querySelector('meta[property="og:title"]')
+      .setAttribute("content", metadata.title); // Update og:title meta tag
+    document
+      .querySelector('meta[property="og:description"]')
+      .setAttribute("content", metadata.description); // Update og:description meta tag
+    document
+      .querySelector('meta[property="og:image"]')
+      .setAttribute("content", metadata.imageUrl); // Update og:image meta tag
+    document
+      .querySelector('meta[property="og:url"]')
+      .setAttribute("content", window.location.href); // Update og:url meta tag
+    document
+      .querySelector('meta[name="twitter:title"]')
+      .setAttribute("content", metadata.title); // Update twitter:title meta tag
+    document
+      .querySelector('meta[name="twitter:description"]')
+      .setAttribute("content", metadata.description); // Update twitter:description meta tag
+    document
+      .querySelector('meta[name="twitter:image"]')
+      .setAttribute("content", metadata.imageUrl); // Update twitter:image meta tag
+    document
+      .querySelector('meta[name="twitter:url"]')
+      .setAttribute("content", window.location.href); // Update twitter:url meta tag
+  }, [metadata.description, metadata.title, metadata.imageUrl]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,6 +68,7 @@ function Music() {
     <Spinner />
   ) : (
     <div>
+      {/* <MetaComponent meta={metadata} /> */}
       <CoverHeader
         image={DisplayCategory?.at(0).coverImage}
         title={DisplayCategory?.at(0).name}

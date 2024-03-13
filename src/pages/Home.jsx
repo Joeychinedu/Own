@@ -119,8 +119,8 @@ function Home() {
       <Editor />
       <div className={styles.homeMainGrid}>
         <div className={styles.homeMainGrid1}>
-          <SmallTitle title="lifestyle" bgColor="#003dff" />
-          <Link to="lifestyle/mythorfacts">
+          <SmallTitle title="lifestyle" bgColor="#003dff" to="lifestyle" />
+          <Link to="lifestyle/enhancecreativity">
             <p>Myth Or Facts The Influence Of Drugs In Creativity.</p>
           </Link>
         </div>

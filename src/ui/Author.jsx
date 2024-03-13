@@ -10,16 +10,16 @@ function Author({ name, authorImage }) {
         {/* <li>
           <FaFacebookF color="rgba(0,0,0,.2)" size={20} />
         </li> */}
-        <li>
-          <a href="https://twitter.com/theownmag?s=21&t=nR6wKyGySAofXYlbmeRlyg">
+        <a href="https://twitter.com/theownmag?s=21&t=nR6wKyGySAofXYlbmeRlyg">
+          <li>
             <FaTwitter color="rgba(0,0,0,.2)" size={20} />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/theownmagazine/?utm_source=qr">
+          </li>
+        </a>
+        <a href="https://www.instagram.com/theownmagazine/?utm_source=qr">
+          <li>
             <FaInstagram color="rgba(0,0,0,.2)" size={20} />
-          </a>
-        </li>
+          </li>
+        </a>
         <li>
           {/* <a href="#"> */}
           <FaPinterest color="rgba(0,0,0,.2)" size={20} />
