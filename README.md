@@ -94,4 +94,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 If you have any questions or suggestions, feel free to contact us:
 
 - **Email:** contact@obsessedwithnostalgia.art
-- **Twitter:** [@MagazineWebsite](https://twitter.com/ownmag)
+- **Twitter:** [@ownmag](https://twitter.com/ownmag)
